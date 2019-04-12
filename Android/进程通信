@@ -1,0 +1,26 @@
+要求 1.设置多进程 在清单文件加process属性，2.对象：除了基本数据类型,其他对象需要序列化，Serializable，Parcelable
+
+1. 使用Bundle
+    Bundle是实现了Parcelable接口的，所以可以方便地在不同的进程间携带数据。Activity、Service、Receiver都支持在Intent中传递Bundle数据。
+
+2. 使用文件共享方式
+    两个进程可以通过读写同一个文件进行传递数据，但对数据同步的处理有局限性，且无法做到即时通信。
+
+3. 使用Messenger
+    在不同的进程中传递Message对象，底层实现是AIDL，局限性：串行处理消息，只能通过Message的Bundle进行数据传递。
+
+4. 使用AIDL
+    通过AIDL实现跨进程的方法调用，高并发实时通信，同样适用于两个应用之间。
+
+    ●  首先建立一个Service和一个AIDL接口
+
+    ●  创建一个类继承自AIDL接口中的Stub类并实现Stub中的抽象方法，并在Service中的onBind方法中返回这个类的对象
+
+    ●  最后客户端就可以绑定服务端的Service，建立连接后即可访问服务端的方法了
+
+5. 使用ContentProvider内容提供者
+   系统预置了很多ContentProvider，如通讯录信息等，也可以自定义ContentProvider，只需要继承ContentProvider并实现其中的onCreate getType insert delete update query这六个方法。通常情况下，ContentProvider以表格的形式组织数据，但也支持文件数据，如图片、视频等。
+
+6. 使用Socket套接字 用的tcp udp协议
+
+   此方法同样适用于两个应用之间，或不同的设备之间
