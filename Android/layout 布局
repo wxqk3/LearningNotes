@@ -1,0 +1,17 @@
+五种布局： FrameLayout 、 LinearLayout 、 AbsoluteLayout 、 RelativeLayout 、 TableLayout
+
+1.FrameLayout(框架布局)：
+
+所有的控件都会默认出现在视图的左上角，用layout_margin，layout_gravity去控制
+
+2.LinearLayout（线形布局）线性
+
+3.AbsoluteLayout（绝对布局）自己定义
+
+4.RelativeLayout(相对布局)相对的
+
+android:layout_centerInParent="true|false"
+
+5.TableLayout(表格布局)
+
+将子元素的位置分配到行或列中，一个TableLayout由许多的TableRow组成
