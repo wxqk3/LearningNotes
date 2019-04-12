@@ -53,3 +53,20 @@ OOM
 注意内存的使用和管理
 
 使用Thread.UncaughtExceptionHandler接口
+
+public class MyApplication extends Application implements UncaughtExceptionHandler { 
+
+@Override 
+
+public void onCreate() { 
+}
+
+@Override 
+
+public void uncaughtException(Thread thread, Throwable ex) { 
+
+thread.setDefaultUncaughtExceptionHandler( this); 
+
+}
+
+} 
