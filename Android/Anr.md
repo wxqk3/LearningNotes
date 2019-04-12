@@ -48,6 +48,8 @@ Error
 
 OOM
 
+run time exception
+
 ##解决的办法
 
 注意内存的使用和管理
