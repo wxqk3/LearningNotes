@@ -1,5 +1,5 @@
 1.线程之间怎么通信
-用handler
+用handler///或者AsyncTask，他是对handler的封装
 
 分两种情况：
 
