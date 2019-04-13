@@ -42,13 +42,15 @@ UI线程尽量只做跟UI相关的工作
   
 排查：1.log 2.从trace.txt文件
 
+
+
+
+
 #FC(Force Close) 
 
-Error
+Error (OOM,java.lang.StackOverFlowError和Java.lang.OutOfMemoryError)
 
-OOM
-
-run time exception
+run time exception  比如说空指针异常，下标越界，就连api使用顺序也会报错 （比如setContentView()之前进行了findViewById()操作）
 
 ##解决的办法
 
