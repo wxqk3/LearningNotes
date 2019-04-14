@@ -2,6 +2,19 @@
 
 1. 使用Bundle
     Bundle是实现了Parcelable接口的，所以可以方便地在不同的进程间携带数据。Activity、Service、Receiver都支持在Intent中传递Bundle数据。
+    
+        Intent intent = new Intent();
+        intent.setClass(MainActivity.this, SecondActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("second", "second");
+        intent.putExtras(bundle);
+        startActivity(intent);
+
+        SecondActivity中获取bunlde中的数据。
+
+        Bundle bundle = getIntent().getExtras();
+        bundle.getString("second");
+
 
 2. 使用文件共享方式
     两个进程可以通过读写同一个文件进行传递数据，但对数据同步的处理有局限性，且无法做到即时通信。
