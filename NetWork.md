@@ -49,8 +49,35 @@ TCP的拥塞控制：慢开始，快重传，快恢复
 
 
 4.Http
+
+  http 是构建于tcp\ip之上，应用层协议，默认端口号80
+  
+  http是无连接无状态的 每次连接处理一个请求 处理完断开，没有记忆功能
+  
+  报文格式：(响应同理 响应行：200OK 404, NOT FOUND 头 主体)
+  1请求行：方法 URL 协议版本
+  
+  2请求头 
+  
+  Host
+  
+  Connection
+  
+  AcceptLangiage
+  
+  3请求主体 get没有 post有       
+  
+
   get post区别:
   1）get用来请求资源，post用来提交资源
-  2）get参数在url上，不安全,post相对安全,参数在请求体中
+  2）get参数在url上，不安全，以field=value的形式，放于url后，并用问号连接，明文,post相对安全,参数在请求体中
   3）get传递数据量长度受url长度限制 不超过2kb，post没有限制
-等等
+  4）get不安全，明文,post相对安全
+  5）get只支持ASCLL字符，向服务器传中文字符可能乱码，post支持标准字符集
+  
+  http1.1
+  a.默认持久连接
+  b.pipline，管线化，同时发多个请求
+  c.断点续传
+  
+  https:就是http加上 ssl加密处理 更安全
