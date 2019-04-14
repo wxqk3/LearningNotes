@@ -14,8 +14,8 @@
 ![image](https://github.com/wxqk3/LearningNotes/blob/master/res/handler.png)
 
  //主线程创建handler
- 
-
+             
+            //如果不是主线程 Looper.prepare();
             private Handler mHandler = new Handler(){
    
             @Override
@@ -32,7 +32,7 @@
             
         };
         
-        
+         //如果不是主线程  Looper.loop();
  //子线程   
  
  
