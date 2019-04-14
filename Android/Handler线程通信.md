@@ -47,3 +47,5 @@
                     mHandler.sendEmptyMessage(0);
                 }
             }).start();
+
+参考https://www.jianshu.com/p/7657f541c461
