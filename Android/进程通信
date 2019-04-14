@@ -8,15 +8,21 @@
 
 3. 使用Messenger
     在不同的进程中传递Message对象，底层实现是AIDL，局限性：串行处理消息，只能通过Message的Bundle进行数据传递。
+    
+    
+    
 
 4. 使用AIDL
     通过AIDL实现跨进程的方法调用，高并发实时通信，同样适用于两个应用之间。
 
-    ●  首先建立一个Service和一个AIDL接口
+  通过编写aidl文件来定义进程间通信接口。
+  编译后会自动生成响应的java文件
+  服务器将接口的具体实现写在Stub中，用iBinder对象传递给客户端，
+  客户端bindService的时候，用asInterface的形式将iBinder还原成接口，再调用其接口中的方法来实现通信。
 
-    ●  创建一个类继承自AIDL接口中的Stub类并实现Stub中的抽象方法，并在Service中的onBind方法中返回这个类的对象
 
-    ●  最后客户端就可以绑定服务端的Service，建立连接后即可访问服务端的方法了
+    
+    
 
 5. 使用ContentProvider内容提供者
    系统预置了很多ContentProvider，如通讯录信息等，也可以自定义ContentProvider，只需要继承ContentProvider并实现其中的onCreate getType insert delete update query这六个方法。通常情况下，ContentProvider以表格的形式组织数据，但也支持文件数据，如图片、视频等。
